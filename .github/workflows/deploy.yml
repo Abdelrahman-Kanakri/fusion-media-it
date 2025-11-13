@@ -3,7 +3,7 @@ name: Deploy React App to Pages
 on:
   # Runs on pushes to the 'main' branch (or 'master')
   push:
-    branches: ["main", "master"] # I included both main and master
+    branches: ["main", "master"] 
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,17 +26,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Using Node.js 20
+          node-version: 20
       - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build # This runs "vite build"
+      
+      # --- ADD THIS ONE LINE ---
+      # This copies your index.html to 404.html to fix SPA routing on GitHub Pages
+      - name: Prepare 404.html for SPA Fallback
+        run: cp dist/index.html dist/404.html
+      # --------------------------
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist" # This is the folder vite builds to
+          path: "./dist" 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
