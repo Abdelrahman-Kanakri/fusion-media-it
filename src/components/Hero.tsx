@@ -9,8 +9,8 @@ const Hero = () => {
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-primary opacity-50" />
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -19,7 +19,7 @@ const Hero = () => {
             className="space-y-6"
           >
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -30,7 +30,7 @@ const Hero = () => {
             </motion.h1>
             
             <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-xl"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -59,7 +59,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
-            className="h-[400px] lg:h-[600px] relative"
+            className="h-[300px] sm:h-[400px] lg:h-[600px] relative"
           >
             <Scene3D />
           </motion.div>

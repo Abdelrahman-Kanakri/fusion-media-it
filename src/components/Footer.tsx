@@ -14,7 +14,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative py-16 px-4 border-t border-border/50">
+    <footer className="relative py-12 sm:py-16 px-4 border-t border-border/50">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           {/* Brand section */}
@@ -24,10 +24,10 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">
               <span className="text-primary">Fusion Media IT</span>
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-md">
+            <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-md">
               Empowering businesses with innovative technology solutions. 
               Let's build the future together.
             </p>
@@ -59,7 +59,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xl font-semibold mb-6">Get in Touch</h4>
+            <h4 className="text-lg sm:text-xl font-semibold mb-6">Get in Touch</h4>
             <div className="space-y-4">
               {contactItems.map((item, index) => {
                 const Icon = item.icon;

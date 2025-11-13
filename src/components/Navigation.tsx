@@ -14,6 +14,19 @@ const navItems = [
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -39,18 +52,19 @@ const Navigation = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors relative group"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-sm lg:text-base text-foreground/80 hover:text-primary transition-colors relative group cursor-pointer"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
               </a>
             ))}
-            <Button className="glow bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button className="glow bg-primary hover:bg-primary/90 text-primary-foreground text-sm lg:text-base">
               Get Started
             </Button>
           </div>
@@ -85,8 +99,8 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-4 py-2 rounded-lg hover:bg-muted/50 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="block px-4 py-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer"
                 >
                   {item.name}
                 </a>

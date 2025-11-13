@@ -65,6 +65,11 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Offset for fixed nav */
+  }
+
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
