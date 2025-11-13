@@ -65,7 +65,7 @@ const Services = () => {
   };
 
   return (
-    <section className="py-20 px-4 relative">
+    <section id="services" className="py-20 px-4 relative">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

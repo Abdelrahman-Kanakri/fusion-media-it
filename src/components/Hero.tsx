@@ -5,7 +5,7 @@ import Scene3D from "./Scene3D";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-primary opacity-50" />
       
