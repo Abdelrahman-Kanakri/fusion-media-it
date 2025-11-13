@@ -25,7 +25,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold mb-4">
-              Your <span className="text-primary">Business Name</span>
+              <span className="text-primary">Fusion Media IT</span>
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md">
               Empowering businesses with innovative technology solutions. 
@@ -88,7 +88,7 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="pt-8 border-t border-border/50 text-center text-sm text-muted-foreground"
         >
-          <p>&copy; {new Date().getFullYear()} Your Business Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Fusion Media IT. All rights reserved.</p>
         </motion.div>
       </div>
 
