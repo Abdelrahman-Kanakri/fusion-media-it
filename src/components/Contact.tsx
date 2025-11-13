@@ -36,10 +36,10 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Get in <span className="text-primary">Touch</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Ready to transform your business? Let's discuss your project
           </p>
         </motion.div>
@@ -53,7 +53,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-6">Contact Information</h3>
             {contactInfo.map((item, index) => {
               const Icon = item.icon;
               return (
