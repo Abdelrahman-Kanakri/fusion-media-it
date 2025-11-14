@@ -5,12 +5,12 @@ import Scene3D from "./Scene3D";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4 sm:px-6">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-primary opacity-50" />
       
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -19,7 +19,7 @@ const Hero = () => {
             className="space-y-6"
           >
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -30,7 +30,7 @@ const Hero = () => {
             </motion.h1>
             
             <motion.p
-              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -45,8 +45,15 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <Button 
-                size="lg" 
-                className="glow-strong group bg-primary hover:bg-primary/90 text-primary-foreground"
+                size="lg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.querySelector('#contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="glow-strong group bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto"
               >
                 Get in Touch
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

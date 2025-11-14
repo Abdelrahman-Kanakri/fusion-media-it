@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,6 +12,32 @@ const navItems = [
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+
+  useEffect(() => {
+    let lastScrollY = 0;
+    
+    const updateHidden = () => {
+      const currentScrollY = scrollY.get();
+      
+      // Only apply hide-on-scroll for mobile/tablet (<1024px)
+      if (window.innerWidth < 1024) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setHidden(true);
+        } else if (currentScrollY < lastScrollY) {
+          setHidden(false);
+        }
+      } else {
+        setHidden(false); // Always show on desktop
+      }
+      
+      lastScrollY = currentScrollY;
+    };
+
+    const unsubscribe = scrollY.on("change", updateHidden);
+    return () => unsubscribe();
+  }, [scrollY]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -29,8 +55,11 @@ const Navigation = () => {
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      animate={{ 
+        y: hidden ? -100 : 0, 
+        opacity: hidden ? 0 : 1 
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50"
     >
       <div className="container mx-auto px-4">
