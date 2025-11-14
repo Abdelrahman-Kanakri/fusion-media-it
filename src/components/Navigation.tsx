@@ -7,7 +7,6 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
   { name: "About", href: "#about" },
-  { name: "Portfolio", href: "#portfolio" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -65,7 +64,16 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
               </a>
             ))}
-            <Button className="glow bg-primary hover:bg-primary/90 text-primary-foreground text-sm lg:text-base">
+            <Button 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.querySelector('#contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="glow bg-primary hover:bg-primary/90 text-primary-foreground text-sm lg:text-base"
+            >
               Get Started
             </Button>
           </div>
@@ -106,7 +114,17 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <Button className="w-full glow bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  const element = document.querySelector('#contact');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="w-full glow bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
                 Get Started
               </Button>
             </div>
