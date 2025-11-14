@@ -39,7 +39,8 @@ const Navigation = () => {
           {/* Logo/Brand */}
           <motion.a
             href="#home"
-            className="flex items-center space-x-2"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="flex items-center space-x-2 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
