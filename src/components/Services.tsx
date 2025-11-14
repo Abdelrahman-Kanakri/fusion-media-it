@@ -65,7 +65,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 px-4 relative">
+    <section id="services" className="py-16 sm:py-20 px-4 relative">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,10 +74,10 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Our <span className="text-primary">Services</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive technology solutions to elevate your business to the next level
           </p>
         </motion.div>

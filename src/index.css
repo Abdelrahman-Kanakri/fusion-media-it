@@ -74,6 +74,13 @@
     @apply bg-background text-foreground;
     overflow-x: hidden;
   }
+  
+  /* Safe area support for notched devices */
+  @supports (padding: max(0px)) {
+    .pb-safe {
+      padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+    }
+  }
 }
 
 @layer utilities {
